@@ -1,0 +1,36 @@
+# Operating system and editor files
+.DS_Store
+Thumbs.db
+Desktop.ini
+.vscode/
+.idea/
+*.swp
+*~
+
+# Local environments and secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+
+# Dependencies and hosting-local state
+node_modules/
+.vercel/
+.netlify/
+
+# Runtime, test, and temporary output
+*.log
+*.tmp
+*.temp
+coverage/
+qa-screenshots/
+
+# Source archives and local backups
+*.zip
+*.tar
+*.tar.gz
+*.tgz
+*.bak
