@@ -25,9 +25,9 @@ if ($html -match 'data-calendly') { throw 'A customer-facing CTA still bypasses 
 if ([regex]::Matches($html, [regex]::Escape($stripeUrl)).Count -gt 0) {
   throw 'Stripe URL must remain centralized in config.js'
 }
-Assert-Contains $html 'Book a 60-Minute Tutoring Session — \$100' 'Primary booking CTA copy is missing'
+Assert-Contains $html 'Book a 60-Minute Tutoring Session — \$140' 'Primary booking CTA copy is missing'
 Assert-Contains $html 'Online Math Tutoring — 60 Minutes' 'Product name is missing'
-Assert-Contains $html '<span>\$</span>100<small>/ session</small>' 'Per-session price is missing'
+Assert-Contains $html '<span>\$</span>140<small>/ session</small>' 'Per-session price is missing'
 Assert-Contains $html '<strong>Pay securely</strong>' 'Payment-first step is missing'
 Assert-Contains $html '<strong>Choose your time</strong>' 'Scheduling step is missing'
 Assert-Contains $html '<strong>Meet online</strong>' 'Online meeting step is missing'
