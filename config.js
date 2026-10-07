@@ -7,9 +7,8 @@ window.SITE_CONFIG = {
   // enter the paid booking flow through stripeUrl, not this URL directly.
   calendlyUrl: "https://calendly.com/coakley1112/60min",
 
-  // TEST / SANDBOX Stripe Payment Link for one $100, 60-minute session.
-  // Replace this with the verified LIVE Payment Link before production launch.
-  stripeUrl: "https://buy.stripe.com/test_28EeVdfz1b352KR1QSdIA00",
+  // LIVE Stripe Payment Link for one $140, 60-minute tutoring session.
+  stripeUrl: "https://buy.stripe.com/4gM14n1Iv4ms1bfePc8og00",
 
   // Professional contact email (shown in Contact + footer)
   contactEmail: "Daniel.cohen11@yahoo.com",

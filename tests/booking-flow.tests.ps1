@@ -11,12 +11,15 @@ function Assert-Contains([string]$Value, [string]$Pattern, [string]$Message) {
   if ($Value -notmatch $Pattern) { throw $Message }
 }
 
-$stripeUrl = 'https://buy.stripe.com/test_28EeVdfz1b352KR1QSdIA00'
+$stripeUrl = 'https://buy.stripe.com/4gM14n1Iv4ms1bfePc8og00'
+$oldStripeUrl = 'https://buy.stripe.com/test_28EeVdfz1b352KR1QSdIA00'
 $calendlyUrl = 'https://calendly.com/coakley1112/60min'
 
-Assert-Contains $config ([regex]::Escape($stripeUrl)) 'Configured Stripe test URL is incorrect'
+Assert-Contains $config ([regex]::Escape($stripeUrl)) 'Configured live Stripe URL is incorrect'
 Assert-Contains $config ([regex]::Escape($calendlyUrl)) 'Configured Calendly URL is incorrect'
-Assert-Contains $config 'TEST / SANDBOX' 'Stripe sandbox warning is missing'
+if ($config -match [regex]::Escape($oldStripeUrl) -or $config -match 'buy\.stripe\.com/test_') {
+  throw 'Stripe sandbox URL is still configured'
+}
 Assert-Contains $script 'querySelectorAll\("\[data-stripe\]"\)' 'Central Stripe binding is missing'
 
 $paidCtas = [regex]::Matches($html, '<a[^>]+data-stripe[^>]*>')
